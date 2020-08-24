@@ -10,23 +10,43 @@ namespace CustomListClassProject
     {
         //member variables
 
-        CustomBuiltList<T> customList;
+        T[] items;
 
-        //public CustomBuiltList<T> CustomList
-        //{
-        //    get
-        //    {
-        //        return customList;
-        //    }
-        //}
+        int capacity;
+        int listCount;
 
+        public int ListCount
+        {
+            get
+            {
+                return listCount;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+            set
+            {
+                capacity = value;
+            }
+        }
+        
         //constructor
         public CustomBuiltList()
         {
-            customList = new CustomBuiltList<T>();
-            //CustomBuiltList<int> customObjectOne = new CustomBuiltList<int>();
+            listCount = 0;
+            capacity = 4;
+            items = new T[capacity];
         }
 
-        //member variables
+        //member methods
+        public void AddToList(T value)
+        {
+
+        }
     }
 }

@@ -114,6 +114,24 @@ namespace UnitTestProjectCustomListClass
            
             //assert
             Assert.AreEqual(expected, actual);
-        }        
+        }       
+        public void Add_Two_Values_To_Get_Capactiy_Of_Four()
+        {
+            //arrange
+
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int value1 = 3;
+            int value2 = 5;
+            int expected = 4;
+            int actual;
+
+            //act
+            customObject.AddToList(value1);
+            customObject.AddToList(value2);
+            actual = customObject.Capacity;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }   
 }
