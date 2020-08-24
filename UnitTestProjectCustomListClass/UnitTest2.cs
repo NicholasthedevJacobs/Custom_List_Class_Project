@@ -25,9 +25,49 @@ namespace UnitTestProjectCustomListClass
 
             //assert
             Assert.AreEqual(expected, actual);
-
-
         }
-        public void 
+        public void Count_Objects_To_4()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            int value4 = 4;
+            int expected = 4;
+            int actual;
+
+            //act
+
+            customObject.AddToList(value1);
+            customObject.AddToList(value2);
+            customObject.AddToList(value3);
+            customObject.AddToList(value4);
+            actual = customObject.ListCount;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        public void Count_Objects_To_37()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int expected = 37;
+            int actual;
+            //act
+
+            //Wants to check if over 37, because the previous maximum length of the array would be 36.  This makes sure the array can 
+            //extend itself multiple times, and maintain its function.
+            for (int i = 0; i < 37; i++)
+            {
+                int value = 1 + i;
+                customObject.AddToList(value);
+              
+            }
+            actual = customObject.ListCount;
+        
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
