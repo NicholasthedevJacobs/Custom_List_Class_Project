@@ -26,6 +26,7 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Count_Objects_To_4()
         {
             //arrange
@@ -48,6 +49,7 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Count_Objects_To_37()
         {
             //arrange
@@ -69,6 +71,7 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Check_Index_At_0()
         {
             //arrange
@@ -91,6 +94,7 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Check_Index_At_Final()
         {
             //arrange

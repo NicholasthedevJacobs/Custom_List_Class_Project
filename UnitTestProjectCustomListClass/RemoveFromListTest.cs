@@ -5,10 +5,10 @@ using CustomListClassProject;
 namespace UnitTestProjectCustomListClass
 {
     [TestClass]
-    public class UnitTest1
+    public class RemoveFromListTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Remove_Value_At_Index_Zero()
         {
             
 
