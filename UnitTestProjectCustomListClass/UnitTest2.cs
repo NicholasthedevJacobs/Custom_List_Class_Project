@@ -98,20 +98,21 @@ namespace UnitTestProjectCustomListClass
             int value1 = 42;
             int value2 = 2;
             int value3 = 3;
-            int value4 = 4;
-            int expected = 42;
+            int value4 = 18;
+            int expected = 18;
             int actual;
 
             //act
+            for (int i = 0; i < 37; i++)
+            {
+                int value = 1 + i;
+                customObject.AddToList(value);
 
-            customObject.AddToList(value1);
-            customObject.AddToList(value2);
-            customObject.AddToList(value3);
-            customObject.AddToList(value4);
-            actual = customObject[0];
-
+            }
+            actual = customObject.AtIndex(ListCount - 1);
+           
             //assert
             Assert.AreEqual(expected, actual);
-        }
+        }        
     }   
 }
