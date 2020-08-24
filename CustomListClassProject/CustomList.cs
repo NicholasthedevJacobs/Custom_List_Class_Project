@@ -34,7 +34,28 @@ namespace CustomListClassProject
                 capacity = value;
             }
         }
-        
+
+        //Starting the indexer here
+        string[] val = new string[4];
+        public string this[int number]
+        {
+            get
+            {
+                if(number >= 0 && number < val.Length)
+                {
+                    return val[number];
+                }
+                return "Error.";
+            }
+
+            set
+            {
+                if(number >= 0 && number < val.Length)
+                {
+                    val[number] = value;
+                }
+            }
+        }
         //constructor
         public CustomBuiltList()
         {
@@ -46,7 +67,23 @@ namespace CustomListClassProject
         //member methods
         public void AddToList(T value)
         {
+            items[listCount] = value;
+            listCount++;
 
+            //This is where I check to see if the capacity is full.  If it is, I need to expand the array.
+            if (listCount == capacity)
+            {
+                
+                //T[] tempList;
+                
+                
+                //for(int i = 0; i < capacity; i++)
+                //{
+                //    items.RemoveFromList[i];
+                //    T removedItem = [i];
+
+                //}
+            }
         }
     }
 }
