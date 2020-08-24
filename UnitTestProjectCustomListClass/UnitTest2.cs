@@ -69,5 +69,49 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(expected, actual);
         }
-    }
+        public void Check_Index_At_0()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int value1 = 42;
+            int value2 = 2;
+            int value3 = 3;
+            int value4 = 4;
+            int expected = 42;
+            int actual;
+
+            //act
+
+            customObject.AddToList(value1);
+            customObject.AddToList(value2);
+            customObject.AddToList(value3);
+            customObject.AddToList(value4);
+            actual = customObject[0];
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        public void Check_Index_At_Final()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int value1 = 42;
+            int value2 = 2;
+            int value3 = 3;
+            int value4 = 4;
+            int expected = 42;
+            int actual;
+
+            //act
+
+            customObject.AddToList(value1);
+            customObject.AddToList(value2);
+            customObject.AddToList(value3);
+            customObject.AddToList(value4);
+            actual = customObject[0];
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+    }   
 }
