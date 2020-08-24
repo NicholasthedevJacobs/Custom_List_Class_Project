@@ -110,7 +110,7 @@ namespace UnitTestProjectCustomListClass
                 customObject.AddToList(value);
 
             }
-            actual = customObject.AtIndex(ListCount);
+            actual = customObject[ListCount];
            
             //assert
             Assert.AreEqual(expected, actual);
