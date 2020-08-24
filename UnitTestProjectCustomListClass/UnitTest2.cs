@@ -95,11 +95,8 @@ namespace UnitTestProjectCustomListClass
         {
             //arrange
             CustomBuiltList<int> customObject = new CustomBuiltList<int>();
-            int value1 = 42;
-            int value2 = 2;
-            int value3 = 3;
-            int value4 = 18;
-            int expected = 18;
+            
+            int expected = 38;
             int actual;
 
             //act
@@ -109,7 +106,7 @@ namespace UnitTestProjectCustomListClass
                 customObject.AddToList(value);
 
             }
-            actual = customObject.AtIndex(ListCount - 1);
+            actual = customObject.AtIndex(ListCount);
            
             //assert
             Assert.AreEqual(expected, actual);
