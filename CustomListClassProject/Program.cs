@@ -10,6 +10,8 @@ namespace CustomListClassProject
     {
         static void Main(string[] args)
         {
+            //CustomBuiltList user = new CustomBuiltList();
+            //user.AddToList();
         }
     }
 }

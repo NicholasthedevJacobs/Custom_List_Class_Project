@@ -14,6 +14,7 @@ namespace CustomListClassProject
 
         int capacity;
         int listCount;
+      
 
         public int ListCount
         {
@@ -36,29 +37,31 @@ namespace CustomListClassProject
         }
 
         //Starting the indexer here
-        string[] val = new string[4];
-        public string this[int number]
+        //T[] items = new T[4];
+        public T this[int number]
         {
             get
             {
-                if(number >= 0 && number < val.Length)
+                if(number >= 0 && number < items.Length)
                 {
-                    return val[number];
+                    return items[number];
                 }
-                return "Error.";
+                Console.WriteLine("Error.");
+                return items[number];
             }
 
             set
             {
-                if(number >= 0 && number < val.Length)
+                if(number >= 0 && number < items.Length)
                 {
-                    val[number] = value;
+                    items[number] = value;
                 }
             }
         }
         //constructor
         public CustomBuiltList()
         {
+           
             listCount = 0;
             capacity = 4;
             items = new T[capacity];
