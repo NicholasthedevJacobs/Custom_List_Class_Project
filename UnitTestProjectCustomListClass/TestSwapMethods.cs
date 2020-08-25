@@ -12,8 +12,8 @@ namespace UnitTestProjectCustomListClass
         {
             //arrange
             CustomBuiltList<int> customObject1 = new CustomBuiltList<int>();
+            //CustomBuiltList<int> arrayToExtend = new CustomBuiltList<int>();
             int[] arrayToExtend = new int[4];
-
             customObject1.AddToList(2);
             customObject1.AddToList(3);
             customObject1.AddToList(5);
