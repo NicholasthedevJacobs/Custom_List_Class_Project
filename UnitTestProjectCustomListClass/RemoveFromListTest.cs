@@ -147,6 +147,7 @@ namespace UnitTestProjectCustomListClass
             actual = customObject[3];
             Assert.AreEqual(expected4, actual);
         }
+        [TestMethod]
         public void Remove_Nonexistant_Number_Make_Sure_Count_Is_Same()
         {
             //arrange
@@ -171,6 +172,7 @@ namespace UnitTestProjectCustomListClass
             actual = customObject.ListCount;
             Assert.AreEqual(actual, expected);
         }
+        [TestMethod]
         public void Remove_Nonexistant_Number_Check_Bool()
         {
             //arrange
@@ -180,7 +182,6 @@ namespace UnitTestProjectCustomListClass
             int value3 = 3;
             int value4 = 4;
             int value5 = 5;
-            int expected = 5;
             bool expectedReturnValue = false;
 
             //act
@@ -190,6 +191,31 @@ namespace UnitTestProjectCustomListClass
             customObject.AddToList(value4);
             customObject.AddToList(value5);
             bool returnValue = customObject.RemoveFromList(100);
+
+            //assert
+
+            Assert.AreEqual(returnValue, expectedReturnValue);
+
+        }
+        [TestMethod]
+        public void Remove_Existant_Number_Check_Bool()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            int value4 = 4;
+            int value5 = 5;
+            bool expectedReturnValue = true;
+
+            //act
+            customObject.AddToList(value1);
+            customObject.AddToList(value2);
+            customObject.AddToList(value3);
+            customObject.AddToList(value4);
+            customObject.AddToList(value5);
+            bool returnValue = customObject.RemoveFromList(5);
 
             //assert
 
