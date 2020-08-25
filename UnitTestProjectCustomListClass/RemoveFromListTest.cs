@@ -28,6 +28,12 @@ namespace UnitTestProjectCustomListClass
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Remove_Index_Two_Check_Index_One()
+        {
+
+        }
+
 
       
     }

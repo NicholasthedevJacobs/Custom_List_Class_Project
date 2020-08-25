@@ -95,13 +95,16 @@ namespace CustomListClassProject
         {
 
         }
-        public void GenericSwapMethod(ref T firstValue, ref T secondValue)
+        public void GenericSwapMethod(ref T[] arrayToExtend)
         {
             T[] temporaryValueHolder;
-
-            temporaryValueHolder = firstValue;
-
+            temporaryValueHolder = new T[capacity];
+            temporaryValueHolder = arrayToExtend;
+        }
+        public void ArrayExtender()
+        {
 
         }
+
     }
 }
