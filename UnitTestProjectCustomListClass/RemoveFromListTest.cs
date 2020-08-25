@@ -72,9 +72,34 @@ namespace UnitTestProjectCustomListClass
             {
                 int value = 1 + i;
                 customObject.AddToList(value);
-
             }
+
+            customObject[8].RemoveFromList;
             actual = customObject.Capacity;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Remove_Multiple_Values()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int expected = 33;
+            int actual;
+
+            //act
+            for (int i = 0; i < 37; i++)
+            {
+                int value = 1 + i;
+                customObject.AddToList(value);
+            }
+
+            customObject[2].RemoveFromList;
+            customObject[2].RemoveFromList;
+            customObject[2].RemoveFromList;
+            actual = customObject.ListCount;
 
             //assert
             Assert.AreEqual(expected, actual);
