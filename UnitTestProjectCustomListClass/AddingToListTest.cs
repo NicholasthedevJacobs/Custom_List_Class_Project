@@ -95,12 +95,12 @@ namespace UnitTestProjectCustomListClass
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Check_Index_At_Final()
+        public void Check_Capacity_After_Extended()
         {
             //arrange
             CustomBuiltList<int> customObject = new CustomBuiltList<int>();
             
-            int expected = 38;
+            int expected = 64;
             int actual;
 
             //act
@@ -110,11 +110,11 @@ namespace UnitTestProjectCustomListClass
                 customObject.AddToList(value);
 
             }
-            actual = customObject.ListCount;
+            actual = customObject.Capacity;
            
             //assert
             Assert.AreEqual(expected, actual);
-            Console.ReadLine();
+            //Console.ReadLine();
         }       
         public void Add_Two_Values_To_Get_Capactiy_Of_Four()
         {
