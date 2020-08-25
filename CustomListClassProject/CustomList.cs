@@ -100,10 +100,12 @@ namespace CustomListClassProject
             T[] temporaryValueHolder;
             temporaryValueHolder = new T[capacity];
             temporaryValueHolder = arrayToExtend;
+            ArrayExtender(ref arrayToExtend);
+            
         }
-        public void ArrayExtender()
+        public void ArrayExtender(ref T[] arrayToExtend)
         {
-
+            Array.Resize(ref arrayToExtend, capacity * 2);
         }
 
     }
