@@ -142,10 +142,10 @@ namespace UnitTestProjectCustomListClass
             Assert.AreEqual(expected2, actual);
 
             actual = customObject[2];
-            Assert.AreEqual(expected1, actual);
+            Assert.AreEqual(expected3, actual);
 
             actual = customObject[3];
-            Assert.AreEqual(expected1, actual);
+            Assert.AreEqual(expected4, actual);
 
         }
     }
