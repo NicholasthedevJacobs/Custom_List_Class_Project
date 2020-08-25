@@ -21,7 +21,7 @@ namespace UnitTestProjectCustomListClass
             int actual;
 
             //act
-            customObject[0].RemoveFromList;
+            //customObject[0].RemoveFromList;
             actual = customObject[0];
 
             //assert

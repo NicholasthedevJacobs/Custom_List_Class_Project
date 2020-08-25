@@ -79,31 +79,34 @@ namespace CustomListClassProject
             //This is where I check to see if the capacity is full.  If it is, I need to expand the array.
             if (listCount == capacity)
             {
+                //call GenericSwapMethod here?
 
-                T[] tempList;
+                //T[] tempList;
 
 
-                for (int i = 0; i < capacity; i++)
-                {
-                    items.RemoveFromList[i];
-                    T removedItem = [i];
+                //for (int i = 0; i < capacity; i++)
+                //{
+                //    items.RemoveFromList[i];
+                //    T removedItem = [i];
 
-                }
+                //}
             }
         }
         public void RemoveFromList()
         {
 
         }
-        public void GenericSwapMethod(ref T[] arrayToExtend)
+        public void GenericSwapMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.
         {
-            T[] temporaryValueHolder;
-            temporaryValueHolder = new T[capacity];
-            temporaryValueHolder = arrayToExtend;
-            ArrayExtender(ref arrayToExtend);
+            T[] placeHolderArray;
+            placeHolderArray = new T[capacity];
+
+            placeHolderArray = arrayToExtend;
+
+            //ArrayExtender(ref arrayToExtend);
             
         }
-        public void ArrayExtender(ref T[] arrayToExtend)
+        public void ArrayExtender(ref T[] arrayToExtend)//Resizes Array to twice the previous size.
         {
             Array.Resize(ref arrayToExtend, capacity * 2);
         }

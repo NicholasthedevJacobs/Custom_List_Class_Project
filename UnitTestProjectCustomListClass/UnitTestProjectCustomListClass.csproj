@@ -52,6 +52,7 @@
     <Compile Include="RemoveFromListTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AddingToListTest.cs" />
+    <Compile Include="TestSwapMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
