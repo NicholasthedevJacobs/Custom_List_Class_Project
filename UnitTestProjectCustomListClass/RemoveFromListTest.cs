@@ -26,7 +26,7 @@ namespace UnitTestProjectCustomListClass
             customObject.AddToList(value3);
             customObject.AddToList(value4);
 
-            customObject[0].RemoveFromList;
+            customObject.RemoveFromList(value1);
             actual = customObject[0];
 
             //assert
@@ -51,7 +51,7 @@ namespace UnitTestProjectCustomListClass
             customObject.AddToList(value3);
             customObject.AddToList(value4);
 
-            customObject[2].RemoveFromList;
+            customObject.RemoveFromList(2);
             actual = customObject[0];
 
             //assert
@@ -74,7 +74,7 @@ namespace UnitTestProjectCustomListClass
                 customObject.AddToList(value);
             }
 
-            customObject[8].RemoveFromList;
+            customObject.RemoveFromList(10);
             actual = customObject.Capacity;
 
             //assert
@@ -96,9 +96,9 @@ namespace UnitTestProjectCustomListClass
                 customObject.AddToList(value);
             }
 
-            customObject[2].RemoveFromList;
-            customObject[2].RemoveFromList;
-            customObject[2].RemoveFromList;
+            customObject.RemoveFromList(2);
+            //customObject[2].RemoveFromList;
+            //customObject[2].RemoveFromList;
             actual = customObject.ListCount;
 
             //assert
@@ -130,7 +130,7 @@ namespace UnitTestProjectCustomListClass
             {
                 if (customObject[i] == 1)
                 {
-                    customObject[i].RemoveFromList;
+                    customObject.RemoveFromList(1);
                 }
             }
 
@@ -146,6 +146,30 @@ namespace UnitTestProjectCustomListClass
 
             actual = customObject[3];
             Assert.AreEqual(expected4, actual);
+        }
+        public void Remove_Nonexistant_Number_Make_Sure_Count_Is_Same()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            int value4 = 4;
+            int value5 = 5;
+            int expected = 5;
+            int actual;
+
+            //act
+            customObject.AddToList(value1);
+            customObject.AddToList(value2);
+            customObject.AddToList(value3);
+            customObject.AddToList(value4);
+            customObject.AddToList(value5);
+            customObject.RemoveFromList(100);
+
+            //assert
+            actual = customObject.ListCount;
+            Assert.AreEqual(actual, expected);
 
         }
     }
