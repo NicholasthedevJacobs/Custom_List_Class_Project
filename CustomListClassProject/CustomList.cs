@@ -45,9 +45,9 @@ namespace CustomListClassProject
                 }
                 else
                 {
-                    Console.WriteLine("Error.");
+                    throw new ArgumentOutOfRangeException();
                 }               
-                return items[number];
+              
             }
 
             set
@@ -77,10 +77,31 @@ namespace CustomListClassProject
             items[listCount] = value;
             listCount++;
         }
-        public void RemoveFromList()
+        public bool RemoveFromList(ref T value)
         {
+            for(int i = 0; i < listCount; i++)
+            {
+                T[] placeHolderArray;
+                placeHolderArray = new T[capacity];
 
+                int place = i; 
+             
+                if(value.Equals(place))
+                {
+                    return true;
+                }
+                else
+                {
+                    placeHolderArray[i] = items[i];
+                    
+                }
+            }
+            return false;
         }
+        //public override string ToString()
+        //{
+        //    return "ID: " + PartId + "   Name: " + PartName;
+        //}
         private void GenericSwapMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.
         {
             T[] placeHolderArray;
