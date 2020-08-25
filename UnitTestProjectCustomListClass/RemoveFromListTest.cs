@@ -58,7 +58,26 @@ namespace UnitTestProjectCustomListClass
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Remove_From_Index_After_Extended_Check_Capacity_Is_Same()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
 
-      
+            int expected = 64;
+            int actual;
+
+            //act
+            for (int i = 0; i < 37; i++)
+            {
+                int value = 1 + i;
+                customObject.AddToList(value);
+
+            }
+            actual = customObject.Capacity;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
