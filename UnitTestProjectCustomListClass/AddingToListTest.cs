@@ -114,6 +114,7 @@ namespace UnitTestProjectCustomListClass
            
             //assert
             Assert.AreEqual(expected, actual);
+            Console.ReadLine();
         }       
         public void Add_Two_Values_To_Get_Capactiy_Of_Four()
         {
@@ -133,5 +134,6 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(expected, actual);
         }
+        
     }   
 }

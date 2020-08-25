@@ -46,7 +46,10 @@ namespace CustomListClassProject
                 {
                     return items[number];
                 }
-                Console.WriteLine("Error.");
+                else
+                {
+                    Console.WriteLine("Error.");
+                }               
                 return items[number];
             }
 
@@ -76,17 +79,29 @@ namespace CustomListClassProject
             //This is where I check to see if the capacity is full.  If it is, I need to expand the array.
             if (listCount == capacity)
             {
-                
-                //T[] tempList;
-                
-                
-                //for(int i = 0; i < capacity; i++)
-                //{
-                //    items.RemoveFromList[i];
-                //    T removedItem = [i];
 
-                //}
+                T[] tempList;
+
+
+                for (int i = 0; i < capacity; i++)
+                {
+                    items.RemoveFromList[i];
+                    T removedItem = [i];
+
+                }
             }
+        }
+        public void RemoveFromList()
+        {
+
+        }
+        public void GenericSwapMethod(ref T firstValue, ref T secondValue)
+        {
+            T[] temporaryValueHolder;
+
+            temporaryValueHolder = firstValue;
+
+
         }
     }
 }
