@@ -104,5 +104,49 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Remove_Repeat_Values()
+        {
+            //arrange
+            CustomBuiltList<int> customObject = new CustomBuiltList<int>();
+            int expected1 = 5;
+            int expected2 = 9;
+            int expected3 = 9;
+            int expected4 = 5;
+            int actual;
+
+            //act
+            customObject.AddToList(5);
+            customObject.AddToList(9);
+            for (int i = 0; i < 37; i++)
+            {
+                int value = 1;
+                customObject.AddToList(value);
+            }
+            customObject.AddToList(9);
+            customObject.AddToList(5);
+
+            for (int i = 0; i < customObject.ListCount; i++)
+            {
+                if (customObject[i] == 1)
+                {
+                    customObject[i].RemoveFromList;
+                }
+            }
+
+            //assert
+            actual = customObject[0];
+            Assert.AreEqual(expected1, actual);
+
+            actual = customObject[1];
+            Assert.AreEqual(expected2, actual);
+
+            actual = customObject[2];
+            Assert.AreEqual(expected1, actual);
+
+            actual = customObject[3];
+            Assert.AreEqual(expected1, actual);
+
+        }
     }
 }

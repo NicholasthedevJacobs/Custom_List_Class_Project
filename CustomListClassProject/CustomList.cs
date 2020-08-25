@@ -13,8 +13,7 @@ namespace CustomListClassProject
         T[] items;
 
         int capacity;
-        int listCount;
-      
+        int listCount;      
 
         public int ListCount
         {
@@ -23,7 +22,6 @@ namespace CustomListClassProject
                 return listCount;
             }
         }
-
         public int Capacity
         {
             get
@@ -62,8 +60,7 @@ namespace CustomListClassProject
         }
         //constructor
         public CustomBuiltList()
-        {
-           
+        {          
             listCount = 0;
             capacity = 4;
             items = new T[capacity];
@@ -84,7 +81,7 @@ namespace CustomListClassProject
         {
 
         }
-        public void GenericSwapMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.
+        private void GenericSwapMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.
         {
             T[] placeHolderArray;
             placeHolderArray = new T[capacity * 2];
@@ -95,12 +92,10 @@ namespace CustomListClassProject
             }
             ArrayExtender(ref arrayToExtend);            
         }
-        public void ArrayExtender(ref T[] arrayToExtend)//Resizes Array to twice the previous size.
+        private void ArrayExtender(ref T[] arrayToExtend)//Resizes Array to twice the previous size.
         {
             capacity = capacity * 2;
             arrayToExtend = new T[capacity];
-           // Array.Resize(ref arrayToExtend, capacity * 2);
         }
-
     }
 }
