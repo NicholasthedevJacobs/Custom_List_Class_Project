@@ -37,7 +37,6 @@ namespace CustomListClassProject
         }
 
         //Starting the indexer here
-        //T[] items = new T[4];
         public T this[int number]
         {
             get
