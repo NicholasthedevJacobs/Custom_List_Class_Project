@@ -74,7 +74,7 @@ namespace UnitTestProjectCustomListClass
                 customObject.AddToList(value);
             }
 
-            customObject.RemoveFromList(10);
+            customObject.RemoveFromList(2);
             actual = customObject.Capacity;
 
             //assert

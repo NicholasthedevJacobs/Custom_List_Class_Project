@@ -72,7 +72,7 @@ namespace CustomListClassProject
         
             if (listCount == capacity)
             {
-                ArrayExtender(ref items);
+                GenericSwapMethod(ref items);
             }
             
             items[listCount] = value;
@@ -123,13 +123,15 @@ namespace CustomListClassProject
                     }
                     else if(i + 1 < listCount)
                     {
-                        placeHolderArray[i] = items[i + 1];
+                        placeHolderArray[i] = items[i];
                         //maybe try placeHolderArray[i - 1]
                         //Will have to add items back into a new list of 'items', 
                         //so it seems like the value was removed instead of moved around.
                     }
+                    
 
                 }
+                break;
                 
             }
             
@@ -158,6 +160,7 @@ namespace CustomListClassProject
         {
             capacity = capacity * 2;
             arrayToExtend = new T[capacity];
+            
         }
     }
 }
