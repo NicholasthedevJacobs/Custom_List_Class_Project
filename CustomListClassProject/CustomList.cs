@@ -76,35 +76,7 @@ namespace CustomListClassProject
             }
             
             items[listCount] = value;
-            listCount++;
-
-
-            //GenericSwapMethod(ref items);
-
-            //    bool arrayFull = false;
-            //    while(arrayFull == false)
-            //    {
-            //        if (listCount < capacity)
-            //        {
-            //            items[listCount] = value;
-            //            listCount++;
-            //        }
-            //        else if (listCount == capacity)
-            //        {
-            //            arrayFull = true;                   
-            //        }
-
-            //    }
-            //    if (arrayFull == true)
-            //    {
-            //        ArrayExtender(ref items);
-            //        arrayFull = false;
-            //    }
-            //    if (listCount < capacity)
-            //    {
-            //        items[listCount] = value;
-            //        listCount++;
-            //    }
+            listCount++;          
         }
         public bool RemoveFromList(T value)
         {
@@ -112,28 +84,24 @@ namespace CustomListClassProject
 
             T[] placeHolderArray;
             placeHolderArray = new T[capacity];
-            while(foundItemToRemove == false)
-            {
-                for (int i = 0; i < listCount; i++)
+          
+                for (int i = 0, j = 0; i < listCount; i++, j++)
                 {
-                    if (value.Equals(items[i]))
+                    if (value.Equals(items[i]) && foundItemToRemove == false)
                     {
-                        placeHolderArray[i] = items[i + 1];
+                        j--;
                         foundItemToRemove = true;
                     }
-                    else if(i + 1 < listCount)
+                    else
                     {
-                        placeHolderArray[i] = items[i];
-                        //maybe try placeHolderArray[i - 1]
-                        //Will have to add items back into a new list of 'items', 
-                        //so it seems like the value was removed instead of moved around.
+                        placeHolderArray[j] = items[i];
+
                     }
                     
 
                 }
-                break;
-                
-            }
+
+            items = placeHolderArray;
             
             return foundItemToRemove;
         }
