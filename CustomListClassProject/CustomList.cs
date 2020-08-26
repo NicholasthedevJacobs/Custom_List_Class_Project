@@ -69,46 +69,42 @@ namespace CustomListClassProject
         //member methods
         public void AddToList(T value)
         {
-            bool arrayFull = false;
-            while(arrayFull == false)
+        
+            if (listCount == capacity)
             {
-                if (listCount < capacity)
-                {
-                    items[listCount] = value;
-                    listCount++;
-                }
-                else if (listCount == capacity)
-                {
-                    arrayFull = true;                   
-                }
-                if(arrayFull == true)
-                {
-                    ArrayExtender(ref items);
-                    arrayFull = false;
-                }
+                ArrayExtender(ref items);
             }
-            //if(listCount < capacity)
-            //{
-            //    items[listCount] = value;
-            //    listCount++;
-            //}
-            //else if(listCount == capacity)
-            //{
-            //    ArrayExtender(ref items);
-            //}
-            ////This is where I check to see if the capacity is full.  If it is, I need to expand the array.
-            //if (listCount == capacity)
-            //{
-            //    ArrayExtender(ref items);
-            //    //GenericSwapMethod(ref items);              
-            //}
-            //else
-            //{
-            //    items[listCount] = value;
-            //    listCount++;
-            //}
+            
+            items[listCount] = value;
+            listCount++;
+
 
             //GenericSwapMethod(ref items);
+
+            //    bool arrayFull = false;
+            //    while(arrayFull == false)
+            //    {
+            //        if (listCount < capacity)
+            //        {
+            //            items[listCount] = value;
+            //            listCount++;
+            //        }
+            //        else if (listCount == capacity)
+            //        {
+            //            arrayFull = true;                   
+            //        }
+
+            //    }
+            //    if (arrayFull == true)
+            //    {
+            //        ArrayExtender(ref items);
+            //        arrayFull = false;
+            //    }
+            //    if (listCount < capacity)
+            //    {
+            //        items[listCount] = value;
+            //        listCount++;
+            //    }
         }
         public bool RemoveFromList(T value)
         {
