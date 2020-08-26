@@ -82,20 +82,21 @@ namespace CustomListClassProject
             T[] placeHolderArray;
             placeHolderArray = new T[capacity];
             for (int i = 0; i < listCount; i++)
-            {
+            {              
+                int place = i + 1;
 
-                int place = i + 1; 
-             
-                if(value.Equals(place))
+                if (value.Equals(place))
                 {
                     return true;
                 }
                 else
                 {
                     placeHolderArray[i] = items[i];
+                    //maybe try placeHolderArray[i - 1]
                     //Will have to add items back into a new list of 'items', 
                     //so it seems like the value was removed instead of moved around.
                 }
+          
             }
             return false;
         }
