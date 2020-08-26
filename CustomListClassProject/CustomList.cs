@@ -68,37 +68,76 @@ namespace CustomListClassProject
 
         //member methods
         public void AddToList(T value)
-        {          
-            //This is where I check to see if the capacity is full.  If it is, I need to expand the array.
-            if (listCount == capacity)
+        {
+            bool arrayFull = false;
+            while(arrayFull == false)
             {
-                GenericSwapMethod(ref items);              
+                if (listCount < capacity)
+                {
+                    items[listCount] = value;
+                    listCount++;
+                }
+                else if (listCount == capacity)
+                {
+                    arrayFull = true;                   
+                }
+                if(arrayFull == true)
+                {
+                    ArrayExtender(ref items);
+                    arrayFull = false;
+                }
             }
-            items[listCount] = value;
-            listCount++;
+            //if(listCount < capacity)
+            //{
+            //    items[listCount] = value;
+            //    listCount++;
+            //}
+            //else if(listCount == capacity)
+            //{
+            //    ArrayExtender(ref items);
+            //}
+            ////This is where I check to see if the capacity is full.  If it is, I need to expand the array.
+            //if (listCount == capacity)
+            //{
+            //    ArrayExtender(ref items);
+            //    //GenericSwapMethod(ref items);              
+            //}
+            //else
+            //{
+            //    items[listCount] = value;
+            //    listCount++;
+            //}
+
+            //GenericSwapMethod(ref items);
         }
         public bool RemoveFromList(T value)
         {
+            bool foundItemToRemove = false;
+
             T[] placeHolderArray;
             placeHolderArray = new T[capacity];
-            for (int i = 0; i < listCount; i++)
-            {              
-                int place = i + 1;
+            while(foundItemToRemove == false)
+            {
+                for (int i = 0; i < listCount; i++)
+                {
+                    if (value.Equals(items[i]))
+                    {
+                        placeHolderArray[i] = items[i + 1];
+                        foundItemToRemove = true;
+                    }
+                    else if(i + 1 < listCount)
+                    {
+                        placeHolderArray[i] = items[i + 1];
+                        //maybe try placeHolderArray[i - 1]
+                        //Will have to add items back into a new list of 'items', 
+                        //so it seems like the value was removed instead of moved around.
+                    }
 
-                if (value.Equals(place))
-                {
-                    return true;
                 }
-                else
-                {
-                    placeHolderArray[i] = items[i];
-                    //maybe try placeHolderArray[i - 1]
-                    //Will have to add items back into a new list of 'items', 
-                    //so it seems like the value was removed instead of moved around.
-                }
-          
+                
             }
-            return false;
+            
+            return foundItemToRemove;
         }
         //public override string ToString()
         //{
