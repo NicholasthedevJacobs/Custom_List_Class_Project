@@ -77,14 +77,14 @@ namespace CustomListClassProject
             items[listCount] = value;
             listCount++;
         }
-        public bool RemoveFromList(ref T value)
+        public bool RemoveFromList(T value)
         {
-            for(int i = 0; i < listCount; i++)
+            T[] placeHolderArray;
+            placeHolderArray = new T[capacity];
+            for (int i = 0; i < listCount; i++)
             {
-                T[] placeHolderArray;
-                placeHolderArray = new T[capacity];
 
-                int place = i; 
+                int place = i + 1; 
              
                 if(value.Equals(place))
                 {
@@ -93,7 +93,8 @@ namespace CustomListClassProject
                 else
                 {
                     placeHolderArray[i] = items[i];
-                    
+                    //Will have to add items back into a new list of 'items', 
+                    //so it seems like the value was removed instead of moved around.
                 }
             }
             return false;
@@ -109,9 +110,13 @@ namespace CustomListClassProject
 
             for (int i = 0; i < capacity; i++)
             {
+                placeHolderArray[i] = arrayToExtend[i];
+            }
+            ArrayExtender(ref arrayToExtend); 
+            for(int i = 0; i < capacity; i++)
+            {
                 arrayToExtend[i] = placeHolderArray[i];
             }
-            ArrayExtender(ref arrayToExtend);            
         }
         private void ArrayExtender(ref T[] arrayToExtend)//Resizes Array to twice the previous size.
         {
