@@ -96,72 +96,64 @@ namespace CustomListClassProject
             {
                 copyList.AddToList(value);
             }
+            copyList.RemoveExtraItemsFromList(copyList);
             return copyList;
+        }
+        public void RemoveExtraItemsFromList(CustomBuiltList<T> listToCopy)
+        {
+            if (listToCopy.listCount < items.Length)
+            {
+                listToCopy.listCount -= listCount;
+            }
         }
         public static CustomBuiltList<T> operator - (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-            //CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo
-            //CustomBuiltList<T> listOne = new CustomBuiltList<T>() { };
             CustomBuiltList<T> listThree = CopyList(listOne);
+            
            
             for (int i = 0; i < listThree.listCount; i++)
             {
                 listThree.RemoveFromList(listTwo[i]);                            
             }                    
             return listThree;
-
-            //if(listOne.listCount <= listTwo.listCount)
-            //{
-            //    for (int i = 0; i < listOne.listCount; i++)
-            //    {
-            //        listOne.RemoveFromList(listTwo[i]);
-            //        listThree.AddToList(listOne[i]);                  
-            //    }
-            //}
-            //else
-            //{
-            //    for (int i = 0; i < listOne.listCount; i++)
-            //    {
-            //        listTwo.RemoveFromList(listOne[i]);
-            //        listThree.AddToList(listTwo[i]);                    
-            //    }
-            //}
-            //return listThree;
+        }
+        public void Zipper()
+        {
 
         }
         public override string ToString()
         {
-            //string newString = "";
-            //for (int i = 0; i < items.Length; i++)
-            //{
-            //    newString += items[i].ToString();          
-            //}
-            //return newString;
-           
+            string newString = "";
+            for (int i = 0; i < listCount; i++)
+            {
+                newString += items[i].ToString();
+            }
+            return newString;
+
             //foreach (T item in items)
             //{
             //    newString += item.ToString();
             //}
             //return newString;
-            
-            //T value;
-            //string listOfIndexes = "";
-            //string[] placeHolder = new string[capacity];
-            //if (listCount > 0)
-            //{
-            //    for (int i = 0; i < listCount; i++)
-            //    {
-            //        value = items[i];
-            //        placeHolder[i] = value.ToString();
-            //        listOfIndexes += $"{placeHolder[i]}";
 
-            //    }
-            //    return listOfIndexes;
-            //}
-            //else
-            //{
-            //    return "";
-            //}
+            T value;
+            string listOfIndexes = "";
+            string[] placeHolder = new string[capacity];
+            if (listCount > 0)
+            {
+                for (int i = 0; i < listCount; i++)
+                {
+                    value = items[i];
+                    placeHolder[i] = value.ToString();
+                    listOfIndexes += $"{placeHolder[i]}";
+
+                }
+                return listOfIndexes;
+            }
+            else
+            {
+                return "";
+            }
         }
         public void AddToList(T value)
         {        
@@ -178,17 +170,18 @@ namespace CustomListClassProject
             bool foundItemToRemove = false;
 
             T[] placeHolderArray;
-            placeHolderArray = new T[capacity];
+            placeHolderArray = new T[listCount];//changed from capacity to listCount
           
                 for (int i = 0, j = 0; i < listCount; i++, j++)
                 {
                     if (value.Equals(items[i]) && foundItemToRemove == false)
                     {
-                        j--;
+                        
+                        j--;                        
                         foundItemToRemove = true;
                     }
                     else
-                    {
+                    {                        
                         placeHolderArray[j] = items[i];
                     }                    
                 }

@@ -13,13 +13,13 @@ namespace CustomListClassProject
             //CustomBuiltList<string> user = new CustomBuiltList<string>();
             //user.ToString();
             //user.AddToList();
-            List<string> thing = new List<string>();
+            //List<string> thing = new List<string>();
 
-            foreach(string flamingo in thing)
-            {
+            //foreach(string flamingo in thing)
+            //{
                 
-                Console.WriteLine(flamingo);
-            }
+            //    Console.WriteLine(flamingo);
+            //}
         }
     }
 }
