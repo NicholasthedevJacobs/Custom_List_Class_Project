@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,13 +70,13 @@ namespace CustomListClassProject
         {
             for (int i = 0; i < listCount; i++)
             {
-                yield return ToString();
+                yield return items[i];
             }
-            yield return "No more values.";
+            
         }
         public static CustomBuiltList<T> operator + (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-            CustomBuiltList<T> listThree = new CustomBuiltList<T> { };
+            CustomBuiltList<T> listThree = new CustomBuiltList<T>();
             for (int i = 0; i < listOne.listCount; i++)
             {              
                 listThree.AddToList(listOne[i]);
@@ -87,40 +88,79 @@ namespace CustomListClassProject
             
             return listThree;            
         }
+        private static CustomBuiltList<T> CopyList(CustomBuiltList<T> listToCopy)
+        {
+            CustomBuiltList<T> copyList = new CustomBuiltList<T>();
+            
+            foreach (T value in listToCopy)
+            {
+                copyList.AddToList(value);
+            }
+            return copyList;
+        }
         public static CustomBuiltList<T> operator - (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-            CustomBuiltList<T> listThree = new CustomBuiltList<T> { };
-            for (int i = 0; i < listOne.listCount; i++)
+            //CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo
+            //CustomBuiltList<T> listOne = new CustomBuiltList<T>() { };
+            CustomBuiltList<T> listThree = CopyList(listOne);
+           
+            for (int i = 0; i < listThree.listCount; i++)
             {
-                listThree.RemoveFromList(listOne[i]);
-            }
-            for (int i = 0; i < listOne.ListCount; i++)
-            {
-                listThree.RemoveFromList(listTwo[i]);
-            }
+                listThree.RemoveFromList(listTwo[i]);                            
+            }                    
             return listThree;
+
+            //if(listOne.listCount <= listTwo.listCount)
+            //{
+            //    for (int i = 0; i < listOne.listCount; i++)
+            //    {
+            //        listOne.RemoveFromList(listTwo[i]);
+            //        listThree.AddToList(listOne[i]);                  
+            //    }
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < listOne.listCount; i++)
+            //    {
+            //        listTwo.RemoveFromList(listOne[i]);
+            //        listThree.AddToList(listTwo[i]);                    
+            //    }
+            //}
+            //return listThree;
 
         }
         public override string ToString()
         {
-            T value;
-            string listOfIndexes = "";
-            string[] placeHolder = new string[capacity];
-            if(listCount > 0)
+            string newString = "";
+            for (int i = 0; i < items.Length; i++)
             {
-                for (int i = 0; i < listCount; i++)
-                {
-                    value = items[i];
-                    placeHolder[i] = value.ToString();
-                    listOfIndexes += $"{placeHolder[i]}";
-
-                }
-                return listOfIndexes;
+                newString += items[i].ToString();
+                return newString;
             }
-            else
-            {
-                return "";
-            }            
+            return newString;
+            //foreach (T item in items)
+            //{
+            //    newString += item.ToString();
+            //}
+            //return newString;
+            //T value;
+            //string listOfIndexes = "";
+            //string[] placeHolder = new string[capacity];
+            //if (listCount > 0)
+            //{
+            //    for (int i = 0; i < listCount; i++)
+            //    {
+            //        value = items[i];
+            //        placeHolder[i] = value.ToString();
+            //        listOfIndexes += $"{placeHolder[i]}";
+
+            //    }
+            //    return listOfIndexes;
+            //}
+            //else
+            //{
+            //    return "";
+            //}
         }
         public void AddToList(T value)
         {        
@@ -149,7 +189,6 @@ namespace CustomListClassProject
                     else
                     {
                         placeHolderArray[j] = items[i];
-
                     }                    
                 }
             items = placeHolderArray;            
