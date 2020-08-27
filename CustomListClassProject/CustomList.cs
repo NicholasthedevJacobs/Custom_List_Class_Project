@@ -47,10 +47,8 @@ namespace CustomListClassProject
                 else
                 {
                     throw new ArgumentOutOfRangeException();
-                }               
-              
+                }                            
             }
-
             set
             {
                 if(number >= 0 && number < items.Length)
@@ -127,9 +125,7 @@ namespace CustomListClassProject
                     {
                         placeHolderArray[j] = items[i];
 
-                    }
-                    
-
+                    }                    
                 }
 
             items = placeHolderArray;
