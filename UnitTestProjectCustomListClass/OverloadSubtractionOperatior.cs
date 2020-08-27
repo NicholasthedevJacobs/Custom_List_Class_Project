@@ -61,6 +61,33 @@ namespace UnitTestProjectCustomListClass
             //assert
             Assert.AreEqual(actual, expected);
         }
+        [TestMethod]
+        public void Subtract_Two_Lists_Both_Are_The_Same()
+        {
+            //assign
+            CustomBuiltList<int> listOne = new CustomBuiltList<int>();
+            CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
+            CustomBuiltList<int> listThree = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value3 = 3;
+            int value5 = 5;
+            string actual;
+            string expected = "";
+
+            listOne.AddToList(value1);
+            listOne.AddToList(value3);
+            listOne.AddToList(value5);
+            listTwo.AddToList(value1);
+            listTwo.AddToList(value3);
+            listTwo.AddToList(value5);
+
+            //act
+            listThree = listOne - listTwo;
+            actual = listThree.ToString();
+
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
 
     }
 }
