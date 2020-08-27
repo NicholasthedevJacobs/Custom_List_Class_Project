@@ -81,15 +81,22 @@ namespace CustomListClassProject
             T value;
             string listOfIndexes = "";
             string[] placeHolder = new string[capacity];
-            for (int i = 0; i < listCount; i++)
+            if(listCount > 0)
             {
-                value = items[i];
-                placeHolder[i] = value.ToString();
-                listOfIndexes += $"{placeHolder[i]}";               
+                for (int i = 0; i < listCount; i++)
+                {
+                    value = items[i];
+                    placeHolder[i] = value.ToString();
+                    listOfIndexes += $"{placeHolder[i]}";
 
+                }
+                return listOfIndexes;
             }
-            return listOfIndexes;
-
+            else
+            {
+                return "";
+            }
+            
         }
         public void AddToList(T value)
         {
