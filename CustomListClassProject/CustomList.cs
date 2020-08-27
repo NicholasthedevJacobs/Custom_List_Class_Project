@@ -67,12 +67,16 @@ namespace CustomListClassProject
         }
 
         //member methods
+        //public override string tostring(T items) { }
+        //{
+        //    return string.Format("{items}", items);
+        //}
         public void AddToList(T value)
         {
         
             if (listCount == capacity)
             {
-                GenericSwapMethod(ref items);
+                GenericSwitchMethod(ref items);
             }
             
             items[listCount] = value;
@@ -109,7 +113,7 @@ namespace CustomListClassProject
         //{
         //    return "ID: " + PartId + "   Name: " + PartName;
         //}
-        private void GenericSwapMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.
+        private void GenericSwitchMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.
         {
             T[] placeHolderArray;
             placeHolderArray = new T[capacity * 2];
