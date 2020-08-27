@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClassProject
 {
-    public class CustomBuiltList<T>
+    public class CustomBuiltList<T> 
     {
         //member variables
 
@@ -67,10 +67,23 @@ namespace CustomListClassProject
         }
 
         //member methods
-        //public override string tostring(T items) { }
+        //public IEnumerator GetEnumerator()
         //{
-        //    return string.Format("{items}", items);
+        //    for (int i = 0; i < listCount; i++)
+        //    {
+        //        yield return items[i];
+        //    }
+        //    yield return "No more values.";
         //}
+        public override string ToString()
+        {
+            //T[] value;
+            for (int i = 0; i < listCount; i++)
+            {
+                return i.ToString();
+            }
+            return "No more values.";
+        }
         public void AddToList(T value)
         {
         
