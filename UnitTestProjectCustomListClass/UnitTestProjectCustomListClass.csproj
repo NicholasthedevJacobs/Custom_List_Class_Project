@@ -54,6 +54,7 @@
     <Compile Include="AddingToListTest.cs" />
     <Compile Include="ToStringOverride.cs" />
     <Compile Include="OverloadAdditionOperator.cs" />
+    <Compile Include="OverloadSubtractionOperatior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
