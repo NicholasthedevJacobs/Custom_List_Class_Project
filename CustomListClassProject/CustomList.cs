@@ -74,6 +74,11 @@ namespace CustomListClassProject
             }
             yield return "No more values.";
         }
+        public void OverloadAddOperator(T[] listOne, T[] listTwo)
+        {
+            listOne = new T[capacity];
+            listTwo = new T[capacity];
+        }
         public override string ToString()
         {
             T value;

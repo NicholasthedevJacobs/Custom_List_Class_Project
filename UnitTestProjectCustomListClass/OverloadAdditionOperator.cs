@@ -35,10 +35,32 @@ namespace UnitTestProjectCustomListClass
             actual = listThree.ToString();
 
             //assert
-
             Assert.AreEqual(actual, expected);
-
-
         }
+        [TestMethod]
+        public void One_List_Has_Values_One_Does_Not()
+        {
+            //assign
+            CustomBuiltList<int> listOne = new CustomBuiltList<int>();
+            CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
+            CustomBuiltList<int> listThree = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value3 = 3;
+            int value5 = 5;
+            string actual;
+            string expected = "135";
+
+            listOne.AddToList(value1);
+            listOne.AddToList(value3);
+            listOne.AddToList(value5);
+
+            //act
+            listThree = listOne + listTwo;
+            actual = listThree.ToString();
+
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+
     }
 }
