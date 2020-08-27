@@ -131,18 +131,19 @@ namespace CustomListClassProject
         }
         public override string ToString()
         {
-            string newString = "";
-            for (int i = 0; i < items.Length; i++)
-            {
-                newString += items[i].ToString();
-                return newString;
-            }
-            return newString;
+            //string newString = "";
+            //for (int i = 0; i < items.Length; i++)
+            //{
+            //    newString += items[i].ToString();          
+            //}
+            //return newString;
+           
             //foreach (T item in items)
             //{
             //    newString += item.ToString();
             //}
             //return newString;
+            
             //T value;
             //string listOfIndexes = "";
             //string[] placeHolder = new string[capacity];
