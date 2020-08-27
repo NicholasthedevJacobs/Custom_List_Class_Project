@@ -62,6 +62,30 @@ namespace UnitTestProjectCustomListClass
             Assert.AreEqual(actual, expected);
         }
         [TestMethod]
+        public void One_List_Has_Values_One_Does_Not_Reverse()
+        {
+            //assign
+            CustomBuiltList<int> listOne = new CustomBuiltList<int>();
+            CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
+            CustomBuiltList<int> listThree = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value3 = 3;
+            int value5 = 5;
+            string actual;
+            string expected = "135";
+
+            listTwo.AddToList(value1);
+            listTwo.AddToList(value3);
+            listTwo.AddToList(value5);
+
+            //act
+            listThree = listOne + listTwo;
+            actual = listThree.ToString();
+
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
         public void One_List_Has_More_Values_Than_The_Other()
         {
             //assign
