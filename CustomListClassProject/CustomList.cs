@@ -74,11 +74,24 @@ namespace CustomListClassProject
             }
             yield return "No more values.";
         }
-        public void OverloadAddOperator(T[] listOne, T[] listTwo)
+        public static CustomBuiltList<T> operator + (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-            listOne = new T[capacity];
-            listTwo = new T[capacity];
+            listOne = new CustomBuiltList<T> { };
+            listTwo = new CustomBuiltList<T> { };
+            CustomBuiltList<T> listThree = new CustomBuiltList<T> { };
+            for (int i = 0; i < listOne.listCount; i++)
+            {
+                listThree.AddToList(listOne[i]);
+            }
+            for (int i = 0; i < listTwo.listCount; i++)
+            {
+                listThree.AddToList(listTwo[i]);
+            }
+            return listThree;
+            
+
         }
+
         public override string ToString()
         {
             T value;
