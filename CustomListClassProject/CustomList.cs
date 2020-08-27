@@ -76,17 +76,20 @@ namespace CustomListClassProject
         }
         public static CustomBuiltList<T> operator + (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-            listOne = new CustomBuiltList<T> { };
-            listTwo = new CustomBuiltList<T> { };
+            //listOne = new CustomBuiltList<T> { };
+            //listTwo = new CustomBuiltList<T> { };
             CustomBuiltList<T> listThree = new CustomBuiltList<T> { };
             for (int i = 0; i < listOne.listCount; i++)
             {
+              
                 listThree.AddToList(listOne[i]);
             }
             for (int i = 0; i < listTwo.listCount; i++)
             {
+                
                 listThree.AddToList(listTwo[i]);
             }
+            
             return listThree;
             
 
