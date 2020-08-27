@@ -35,7 +35,7 @@ namespace UnitTestProjectCustomListClass
         {
             //arrange
             CustomBuiltList<int> customObject = new CustomBuiltList<int>();
-            string expected = "No More Values.";
+            string expected = "";
             string actual;
 
             //act

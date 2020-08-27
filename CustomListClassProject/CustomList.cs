@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClassProject
 {
-    public class CustomBuiltList<T> 
+    public class CustomBuiltList<T> : IEnumerable
     {
         //member variables
 
@@ -67,22 +68,28 @@ namespace CustomListClassProject
         }
 
         //member methods
-        //public IEnumerator GetEnumerator()
-        //{
-        //    for (int i = 0; i < listCount; i++)
-        //    {
-        //        yield return items[i];
-        //    }
-        //    yield return "No more values.";
-        //}
-        public override string ToString()
+        public IEnumerator GetEnumerator()
         {
-            //T[] value;
             for (int i = 0; i < listCount; i++)
             {
-                return i.ToString();
+                yield return ToString();
             }
-            return "No more values.";
+            yield return "No more values.";
+        }
+        public override string ToString()
+        {
+            T value;
+            string listOfIndexes = "";
+            string[] placeHolder = new string[capacity];
+            for (int i = 0; i < listCount; i++)
+            {
+                value = items[i];
+                placeHolder[i] = value.ToString();
+                listOfIndexes += $"{placeHolder[i]}";               
+
+            }
+            return listOfIndexes;
+
         }
         public void AddToList(T value)
         {
