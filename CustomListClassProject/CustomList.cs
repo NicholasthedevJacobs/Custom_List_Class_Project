@@ -64,7 +64,6 @@ namespace CustomListClassProject
             capacity = 4;
             items = new T[capacity];
         }
-
         //member methods
         public IEnumerator GetEnumerator()
         {
@@ -76,25 +75,32 @@ namespace CustomListClassProject
         }
         public static CustomBuiltList<T> operator + (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-            //listOne = new CustomBuiltList<T> { };
-            //listTwo = new CustomBuiltList<T> { };
             CustomBuiltList<T> listThree = new CustomBuiltList<T> { };
             for (int i = 0; i < listOne.listCount; i++)
-            {
-              
+            {              
                 listThree.AddToList(listOne[i]);
             }
             for (int i = 0; i < listTwo.listCount; i++)
-            {
-                
+            {                
                 listThree.AddToList(listTwo[i]);
             }
             
+            return listThree;            
+        }
+        public static CustomBuiltList<T> operator - (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
+        {
+            CustomBuiltList<T> listThree = new CustomBuiltList<T> { };
+            for (int i = 0; i < listOne.listCount; i++)
+            {
+                listThree.RemoveFromList(listOne[i]);
+            }
+            for (int i = 0; i < listOne.ListCount; i++)
+            {
+                listThree.RemoveFromList(listTwo[i]);
+            }
             return listThree;
-            
 
         }
-
         public override string ToString()
         {
             T value;
@@ -114,12 +120,10 @@ namespace CustomListClassProject
             else
             {
                 return "";
-            }
-            
+            }            
         }
         public void AddToList(T value)
-        {
-        
+        {        
             if (listCount == capacity)
             {
                 GenericSwitchMethod(ref items);
@@ -148,15 +152,9 @@ namespace CustomListClassProject
 
                     }                    
                 }
-
-            items = placeHolderArray;
-            
+            items = placeHolderArray;            
             return foundItemToRemove;
         }
-        //public override string ToString()
-        //{
-        //    return "ID: " + PartId + "   Name: " + PartName;
-        //}
         private void GenericSwitchMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.
         {
             T[] placeHolderArray;
@@ -175,8 +173,7 @@ namespace CustomListClassProject
         private void ArrayExtender(ref T[] arrayToExtend)//Resizes Array to twice the previous size.
         {
             capacity = capacity * 2;
-            arrayToExtend = new T[capacity];
-            
+            arrayToExtend = new T[capacity];            
         }
     }
 }
