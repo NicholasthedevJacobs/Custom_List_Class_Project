@@ -96,24 +96,26 @@ namespace CustomListClassProject
             {
                 copyList.AddToList(value);
             }
-            copyList.RemoveExtraItemsFromList(copyList);
+           // copyList.RemoveExtraItemsFromList(copyList);
             return copyList;
         }
-        public void RemoveExtraItemsFromList(CustomBuiltList<T> listToCopy)
-        {
-            if (listToCopy.listCount < items.Length)
-            {
-                listToCopy.listCount -= listCount;
-            }
-        }
+        //public void RemoveExtraItemsFromList(CustomBuiltList<T> listToCopy)
+        //{
+        //    if (listToCopy.listCount < items.Length)
+        //    {
+        //        listToCopy.listCount -= listCount;
+        //    }
+        //}
         public static CustomBuiltList<T> operator - (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
             CustomBuiltList<T> listThree = CopyList(listOne);
             
            
-            for (int i = 0; i < listThree.listCount; i++)
+            for (int i = 0; i < listTwo.listCount; i++)
             {
-                listThree.RemoveFromList(listTwo[i]);                            
+                
+                listThree.RemoveFromList(listTwo[i]);
+               
             }                    
             return listThree;
         }
@@ -172,20 +174,25 @@ namespace CustomListClassProject
             T[] placeHolderArray;
             placeHolderArray = new T[listCount];//changed from capacity to listCount
           
-                for (int i = 0, j = 0; i < listCount; i++, j++)
+            for (int i = 0, j = 0; i < listCount; i++, j++)
+            {
+                if (value.Equals(items[i]) && foundItemToRemove == false)
                 {
-                    if (value.Equals(items[i]) && foundItemToRemove == false)
-                    {
                         
-                        j--;                        
-                        foundItemToRemove = true;
-                    }
-                    else
-                    {                        
-                        placeHolderArray[j] = items[i];
-                    }                    
+                    j--;                        
+                    foundItemToRemove = true;
                 }
-            items = placeHolderArray;            
+                else
+                {                        
+                    placeHolderArray[j] = items[i];
+                }                                                         
+            }
+            if (foundItemToRemove == true)
+            {
+                
+                listCount--;
+            }
+                items = placeHolderArray;            
             return foundItemToRemove;
         }
         private void GenericSwitchMethod(ref T[] arrayToExtend)//Copies values from original array to newly created array.

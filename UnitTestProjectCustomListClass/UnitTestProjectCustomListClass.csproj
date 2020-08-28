@@ -55,6 +55,7 @@
     <Compile Include="ToStringOverride.cs" />
     <Compile Include="OverloadAdditionOperator.cs" />
     <Compile Include="OverloadSubtractionOperatior.cs" />
+    <Compile Include="ZipperUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
