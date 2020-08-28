@@ -35,7 +35,6 @@ namespace CustomListClassProject
                 capacity = value;
             }
         }
-
         //Starting the indexer here
         public T this[int number]
         {
@@ -71,8 +70,7 @@ namespace CustomListClassProject
             for (int i = 0; i < listCount; i++)
             {
                 yield return items[i];
-            }
-            
+            }           
         }
         public static CustomBuiltList<T> operator + (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
@@ -99,23 +97,12 @@ namespace CustomListClassProject
            // copyList.RemoveExtraItemsFromList(copyList);
             return copyList;
         }
-        //public void RemoveExtraItemsFromList(CustomBuiltList<T> listToCopy)
-        //{
-        //    if (listToCopy.listCount < items.Length)
-        //    {
-        //        listToCopy.listCount -= listCount;
-        //    }
-        //}
         public static CustomBuiltList<T> operator - (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-            CustomBuiltList<T> listThree = CopyList(listOne);
-            
-           
+            CustomBuiltList<T> listThree = CopyList(listOne);                      
             for (int i = 0; i < listTwo.listCount; i++)
-            {
-                
-                listThree.RemoveFromList(listTwo[i]);
-               
+            {               
+                listThree.RemoveFromList(listTwo[i]);               
             }                    
             return listThree;
         }
@@ -131,31 +118,6 @@ namespace CustomListClassProject
                 newString += items[i].ToString();
             }
             return newString;
-
-            //foreach (T item in items)
-            //{
-            //    newString += item.ToString();
-            //}
-            //return newString;
-
-            T value;
-            string listOfIndexes = "";
-            string[] placeHolder = new string[capacity];
-            if (listCount > 0)
-            {
-                for (int i = 0; i < listCount; i++)
-                {
-                    value = items[i];
-                    placeHolder[i] = value.ToString();
-                    listOfIndexes += $"{placeHolder[i]}";
-
-                }
-                return listOfIndexes;
-            }
-            else
-            {
-                return "";
-            }
         }
         public void AddToList(T value)
         {        
@@ -177,8 +139,7 @@ namespace CustomListClassProject
             for (int i = 0, j = 0; i < listCount; i++, j++)
             {
                 if (value.Equals(items[i]) && foundItemToRemove == false)
-                {
-                        
+                {                       
                     j--;                        
                     foundItemToRemove = true;
                 }
