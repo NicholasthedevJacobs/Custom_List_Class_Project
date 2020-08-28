@@ -109,6 +109,39 @@ namespace CustomListClassProject
         public CustomBuiltList<T> Zipper(CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
             CustomBuiltList<T> copyList = new CustomBuiltList<T>();
+            //while((listOne.listCount + listTwo.listCount) > 0)
+            //{
+            //    if (listOne.listCount >= listTwo.listCount)
+            //    {
+            //        for (int i = 0; i <= copyList.listCount; i++)
+            //        {
+            //            copyList.AddToList(listOne[i]);
+            //            listOne.listCount--;
+            //            if (listOne.listCount <= listTwo.listCount)
+            //            {
+            //                break;
+            //            }
+                        
+            //        }
+
+            //    }
+            //    else if (listTwo.listCount > listOne.listCount)
+            //    {
+                    
+            //        for (int j = 0; j <= copyList.listCount; j++)
+            //        {
+            //            copyList.AddToList(listTwo[j]);
+            //            listTwo.listCount--;
+            //            if(listOne.listCount == listTwo.listCount)
+            //            {
+            //                break;
+            //            }
+                        
+            //        }
+
+            //    }
+            //}
+            
 
             string evenOrOdd = "Even";
 
@@ -120,9 +153,10 @@ namespace CustomListClassProject
                   
                     while (evenOrOdd == "Even")
                     {
-                        if(listOne.listCount == 0)
+                        if(listTwo.listCount == 0)//Save for idea later
                         {
-                            break;
+                            evenOrOdd = "Even";
+                            
                         }
                         copyList.AddToList(listOne[i]);
                         evenOrOdd = "Odd";
@@ -131,9 +165,10 @@ namespace CustomListClassProject
                     }
                     while (evenOrOdd == "Odd")
                     {
-                        if(listTwo.listCount == 0)
+                        if(listOne.listCount == 0)//Save for idea later
                         {
-                            break;
+                            evenOrOdd = "Odd";
+                            
                         }
                         copyList.AddToList(listTwo[i]);
                         evenOrOdd = "Even";
