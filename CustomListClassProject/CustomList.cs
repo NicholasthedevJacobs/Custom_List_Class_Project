@@ -106,9 +106,29 @@ namespace CustomListClassProject
             }                    
             return listThree;
         }
-        public void Zipper()
+        public CustomBuiltList<T> Zipper(CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
-
+            CustomBuiltList<T> copyList = new CustomBuiltList<T>();
+            string evenOrOdd = "Even";
+            if (evenOrOdd == "Even")
+            {
+                for (int i = 0; i < listOne.listCount; i++)
+                {
+                    copyList.AddToList(listOne[i]);
+                    evenOrOdd = "False";
+                    
+                }
+            }
+            else
+            {
+                for (int i = 0; i < listTwo.listCount; i++)
+                {
+                    copyList.AddToList(listTwo[i]);
+                    evenOrOdd = "True";
+                    break;
+                }
+            }
+            return copyList;
         }
         public override string ToString()
         {
