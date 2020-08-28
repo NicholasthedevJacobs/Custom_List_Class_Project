@@ -109,40 +109,42 @@ namespace CustomListClassProject
         public CustomBuiltList<T> Zipper(CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
             CustomBuiltList<T> copyList = new CustomBuiltList<T>();
+
             string evenOrOdd = "Even";
+
             while (copyList.listCount < (listOne.listCount + listTwo.listCount))
             {
-                
-                for (int i = 0, j = 0; i < listOne.listCount; i++, j++)
+
+                for (int i = 0, j = 0; i < listOne.listCount || i < listTwo.listCount; i++, j++)
                 {
+                  
                     while (evenOrOdd == "Even")
                     {
+                        if(listOne.listCount == 0)
+                        {
+                            break;
+                        }
                         copyList.AddToList(listOne[i]);
                         evenOrOdd = "Odd";
-                       
-
+                        //listOne.listCount--;
+                        break;
                     }
-                    while(evenOrOdd == "Odd")
+                    while (evenOrOdd == "Odd")
                     {
-                        copyList.AddToList(listTwo[j]);
+                        if(listTwo.listCount == 0)
+                        {
+                            break;
+                        }
+                        copyList.AddToList(listTwo[i]);
                         evenOrOdd = "Even";
-                        
+                        //listTwo.listCount--;
+                        break;
                     }
                 }
-               
-                //for (int i = 0; i < listTwo.listCount; i++)
-                //{
-                //    copyList.AddToList(listTwo[i]);
-                //    evenOrOdd = "Even";
-                //    break;
-
-                //}
-              
-                
             }
             return copyList;
         }
-            
+
         public override string ToString()
         {
             string newString = "";
