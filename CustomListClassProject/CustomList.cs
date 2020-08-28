@@ -110,26 +110,39 @@ namespace CustomListClassProject
         {
             CustomBuiltList<T> copyList = new CustomBuiltList<T>();
             string evenOrOdd = "Even";
-            if (evenOrOdd == "Even")
+            while (copyList.listCount < (listOne.listCount + listTwo.listCount))
             {
-                for (int i = 0; i < listOne.listCount; i++)
+                
+                for (int i = 0, j = 0; i < listOne.listCount; i++, j++)
                 {
-                    copyList.AddToList(listOne[i]);
-                    evenOrOdd = "False";
-                    
+                    while (evenOrOdd == "Even")
+                    {
+                        copyList.AddToList(listOne[i]);
+                        evenOrOdd = "Odd";
+                       
+
+                    }
+                    while(evenOrOdd == "Odd")
+                    {
+                        copyList.AddToList(listTwo[j]);
+                        evenOrOdd = "Even";
+                        
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 0; i < listTwo.listCount; i++)
-                {
-                    copyList.AddToList(listTwo[i]);
-                    evenOrOdd = "True";
-                    break;
-                }
+               
+                //for (int i = 0; i < listTwo.listCount; i++)
+                //{
+                //    copyList.AddToList(listTwo[i]);
+                //    evenOrOdd = "Even";
+                //    break;
+
+                //}
+              
+                
             }
             return copyList;
         }
+            
         public override string ToString()
         {
             string newString = "";

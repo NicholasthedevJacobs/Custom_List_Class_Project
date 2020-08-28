@@ -92,7 +92,7 @@ namespace UnitTestProjectCustomListClass
             CustomBuiltList<int> listOne = new CustomBuiltList<int>();
             CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
             CustomBuiltList<int> listThree = new CustomBuiltList<int>();
-            string listy;
+            
             int value1 = 1;
             int value3 = 3;
             int value5 = 5;
