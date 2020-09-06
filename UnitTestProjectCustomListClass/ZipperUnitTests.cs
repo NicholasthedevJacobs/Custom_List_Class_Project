@@ -77,6 +77,31 @@ namespace UnitTestProjectCustomListClass
             CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
             CustomBuiltList<int> listThree = new CustomBuiltList<int>();
             CustomBuiltList<int> listFour = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            string actual;
+            string expected = "123";
+
+            listOne.AddToList(value1);
+            listOne.AddToList(value2);
+            listOne.AddToList(value3);
+
+            //act
+            listFour = listThree.Zipper(listOne, listTwo);
+            actual = listFour.ToString();
+
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void One_List_Has_No_Values()
+        {
+            //assign
+            CustomBuiltList<int> listOne = new CustomBuiltList<int>();
+            CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
+            CustomBuiltList<int> listThree = new CustomBuiltList<int>();
+            CustomBuiltList<int> listFour = new CustomBuiltList<int>();
             string actual;
             string expected = "";
 
