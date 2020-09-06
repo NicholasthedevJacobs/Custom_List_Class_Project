@@ -109,77 +109,37 @@ namespace CustomListClassProject
         public CustomBuiltList<T> Zipper(CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
         {
             CustomBuiltList<T> copyList = new CustomBuiltList<T>();
-            //while((listOne.listCount + listTwo.listCount) > 0)
-            //{
-            //    if (listOne.listCount >= listTwo.listCount)
-            //    {
-            //        for (int i = 0; i <= copyList.listCount; i++)
-            //        {
-            //            copyList.AddToList(listOne[i]);
-            //            listOne.listCount--;
-            //            if (listOne.listCount <= listTwo.listCount)
-            //            {
-            //                break;
-            //            }
-                        
-            //        }
+            CustomBuiltList<T> longList = new CustomBuiltList<T>();
+            CustomBuiltList<T> shortList = new CustomBuiltList<T>();
 
-            //    }
-            //    else if (listTwo.listCount > listOne.listCount)
-            //    {
-                    
-            //        for (int j = 0; j <= copyList.listCount; j++)
-            //        {
-            //            copyList.AddToList(listTwo[j]);
-            //            listTwo.listCount--;
-            //            if(listOne.listCount == listTwo.listCount)
-            //            {
-            //                break;
-            //            }
-                        
-            //        }
-
-            //    }
-            //}
-            
-
-            string evenOrOdd = "Even";
-
-            while (copyList.listCount < (listOne.listCount + listTwo.listCount))
+            if (listOne.listCount >= listTwo.listCount)
             {
+                longList = listOne;
+                shortList = listTwo;
 
-                for (int i = 0, j = 0; i < listOne.listCount || i < listTwo.listCount; i++, j++)
+            }            
+            else
+            {
+                shortList = listOne;
+                longList = listTwo;
+
+            }
+
+            for (int i = 0; i < listOne.listCount + listTwo.listCount; i++)
+            {
+                copyList.AddToList(longList[i]);
+
+                if (shortList.listCount > 0)
                 {
-                  
-                    while (evenOrOdd == "Even")
-                    {
-                        if(listTwo.listCount == 0)//Save for idea later
-                        {
-                            evenOrOdd = "Even";
-                            
-                        }
-                        copyList.AddToList(listOne[i]);
-                        evenOrOdd = "Odd";
-                        //listOne.listCount--;
-                        break;
-                    }
-                    while (evenOrOdd == "Odd")
-                    {
-                        if(listOne.listCount == 0)//Save for idea later
-                        {
-                            evenOrOdd = "Odd";
-                            
-                        }
-                        copyList.AddToList(listTwo[i]);
-                        evenOrOdd = "Even";
-                        //listTwo.listCount--;
-                        break;
-                    }
+                    copyList.AddToList(shortList[i]);
+                    shortList.listCount--;
                 }
+
             }
             return copyList;
-        }
 
+
+        }
         public override string ToString()
         {
             string newString = "";

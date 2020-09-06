@@ -14,6 +14,7 @@ namespace UnitTestProjectCustomListClass
             CustomBuiltList<int> listOne = new CustomBuiltList<int>();
             CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
             CustomBuiltList<int> listThree = new CustomBuiltList<int>();
+            CustomBuiltList<int> listFour = new CustomBuiltList<int>();
             int value1 = 1;
             int value2 = 2;
             int value3 = 3;
@@ -31,8 +32,8 @@ namespace UnitTestProjectCustomListClass
             listTwo.AddToList(value6);
 
             //act
-            listThree = listThree.Zipper(listOne, listTwo);
-            actual = listThree.ToString();
+            listFour = listThree.Zipper(listOne, listTwo);
+            actual = listFour.ToString();
 
             //assert
             Assert.AreEqual(actual, expected);
@@ -44,6 +45,7 @@ namespace UnitTestProjectCustomListClass
             CustomBuiltList<int> listOne = new CustomBuiltList<int>();
             CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
             CustomBuiltList<int> listThree = new CustomBuiltList<int>();
+            CustomBuiltList<int> listFour = new CustomBuiltList<int>();
             int value1 = 1;
             int value2 = 2;
             int value3 = 3;
@@ -57,15 +59,17 @@ namespace UnitTestProjectCustomListClass
             listOne.AddToList(value3);
             listTwo.AddToList(value2);
             listTwo.AddToList(value4);
-            listTwo.AddToList(value5);
-            listTwo.AddToList(value6);
+            listOne.AddToList(value5);
+            listOne.AddToList(value6);
 
             //act
-            listThree.Zipper(listOne, listTwo);
-            actual = listThree.ToString();
+            listFour = listThree.Zipper(listOne, listTwo);
+            actual = listFour.ToString();
 
             //assert
             Assert.AreEqual(actual, expected);
         }
+       
+
     }
 }
