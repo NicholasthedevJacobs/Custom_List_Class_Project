@@ -1,0 +1,55 @@
+CustomList<T> '-' Operator Overload Method
+
+
+Allows the '-' aperator to be used to 'subtract' one list from another.  Will remove duplicate values.
+
+C#
+public static CustomBuiltList<T> operator - (CustomBuiltList<T> listOne, CustomBuiltList<T> listTwo)
+
+Syntax
+One can simply put '-' in between two lists to subtract.  Must put results into newly created list.
+
+Parameters
+listOne, listTwo T
+The lists to subtract from one another.
+
+Returns
+CustomeBuiltList<T>
+The final result will be returned from the method.  This must be a CustomBuiltList<T> list.
+
+
+Example
+public class Example
+{ 
+            //Creating three lists, and six values to put into list.
+            CustomBuiltList<int> listOne = new CustomBuiltList<int>();
+            CustomBuiltList<int> listTwo = new CustomBuiltList<int>();
+            CustomBuiltList<int> listThree = new CustomBuiltList<int>();
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            int value4 = 1;
+            int value5 = 5;
+            int value6 = 6;
+
+            //Adding the values to listOne and listTwo.
+            listOne.AddToList(value1);
+            listOne.AddToList(value3);
+            listOne.AddToList(value5);
+            listTwo.AddToList(value2);
+            listTwo.AddToList(value4);
+            listTwo.AddToList(value6);
+
+            //listOne should hold values {1,3,5} and listTwo should contain values {2,4,6}
+            Console.WriteLine(listOne);
+            Console.WriteLine(listTwo);
+
+            //This uses the logic, to remove the '1' from the first list, as it is the only repeat value.
+            listThree = listOne - listTwo;
+
+            //Prints the values in the new list, which will be {3,5}.           
+           Console.WriteLine(listThree);
+
+
+
+         

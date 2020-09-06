@@ -14,8 +14,8 @@ namespace CustomListClassProject
 
         T[] items;
 
-        int capacity;
-        int listCount;      
+        private int capacity;
+        private int listCount;      
 
         public int ListCount
         {
@@ -206,5 +206,9 @@ namespace CustomListClassProject
             capacity = capacity * 2;
             arrayToExtend = new T[capacity];            
         }
+        //public CustomBuiltList<T> ListSorter(CustomBuiltList<T> listTwo)
+        //{
+            
+        //}
     }
 }
