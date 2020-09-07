@@ -40,7 +40,7 @@ namespace CustomListClassProject
         {
             get
             {
-                if(number >= 0 && number < items.Length)
+                if(number >= 0 && number < listCount)//changed from items.Length to listCount
                 {
                     return items[number];
                 }
@@ -51,7 +51,7 @@ namespace CustomListClassProject
             }
             set
             {
-                if(number >= 0 && number < items.Length)
+                if(number >= 0 && number < listCount)//changed from items.Length to listCount
                 {
                     items[number] = value;
                 }
@@ -116,15 +116,12 @@ namespace CustomListClassProject
             {
                 longList = listOne;
                 shortList = listTwo;
-
             }            
             else
             {
                 shortList = listOne;
                 longList = listTwo;
-
             }
-
             for (int i = 0; i < listOne.listCount + listTwo.listCount; i++)
             {
                 copyList.AddToList(longList[i]);
@@ -134,11 +131,8 @@ namespace CustomListClassProject
                     copyList.AddToList(shortList[i]);
                     shortList.listCount--;
                 }
-
             }
             return copyList;
-
-
         }
         public override string ToString()
         {
@@ -206,9 +200,5 @@ namespace CustomListClassProject
             capacity = capacity * 2;
             arrayToExtend = new T[capacity];            
         }
-        //public CustomBuiltList<T> ListSorter(CustomBuiltList<T> listTwo)
-        //{
-            
-        //}
     }
 }
